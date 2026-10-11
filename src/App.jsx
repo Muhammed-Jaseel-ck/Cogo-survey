@@ -1,106 +1,145 @@
 import React from 'react'
 
 export default function App(){
-const skills = ["Land Surveying","GPS & Total Station","DGPS / RTK","Leveling & Traversing","Topographic Survey","Construction Survey","Site Layout","As-Built Survey","AutoCAD","E-Survey","Earthwork Calculation","Legal Documentation"]
+const skills = ["Land Surveying","GPS & Total Station","DGPS / RTK","Leveling","Topographic","Construction Survey","Site Layout","AutoCAD","E-Survey","Earthwork"]
 
 const services = [
-  { title:"📍 Land Surveying", short:"For NHAI, PWD, KIIFB, private plots", points:["Land and plot measurement","Boundary survey and demarcation","Plot subdivision and re-survey","Area calculation in cents/acres/hectares","Property boundary marking"] },
-  { title:"🏗️ Setting Out Survey", short:"Building, Highway, Bridge setting out", points:["Building and foundation setting out","Column and gridline marking","Road and bridge setting out for NHAI/PWD","Plot layout and alignment","Excavation level marking"] },
-  { title:"📐 Topographic Survey", short:"For road, highway, site development", points:["Topographical land survey","Contour survey and mapping","Ground level and elevation survey","Natural and man-made feature mapping","Site development survey for construction"] },
-  { title:"🗺️ CAD Drawing & Mapping", short:"AutoCAD & report preparation", points:["AutoCAD survey drawings","Plot plans and site layouts","Contour and topographic plans","Survey data processing in E-Survey/AutoCAD","Coordinate plotting and area calculations"] },
-  { title:"📏 Levelling & Construction Survey", short:"Benchmark, RL, construction verification", points:["Benchmark establishment","Reduced level (RL) transfer","Elevation and slope checking","Excavation and filling level checks","Construction alignment verification"] },
-  { title:"⭐ Additional Specialized", short:"Pipeline, Traverse, Earthwork", points:["Pipeline route and alignment surveys","Traverse survey and control network surveys","Volume and earthwork calculations","Drainage and utility surveys","Industrial and infrastructure layout surveys"] },
+  { n:"01", t:"Land Surveying", d:"NHAI / PWD / KIIFB & private plots", l:["Land and plot measurement","Boundary demarcation","Plot subdivision & re-survey","Area calculation (cents/acres)","Property boundary marking"] },
+  { n:"02", t:"Setting Out Survey", d:"Building / Highway / Bridge", l:["Building & foundation setting out","Column & gridline marking","Road & bridge setting out","Plot layout & alignment","Excavation level marking"] },
+  { n:"03", t:"Topographic Survey", d:"Road & site development", l:["Topographical land survey","Contour survey & mapping","Ground level & elevation","Natural & man-made feature mapping","Site development survey"] },
+  { n:"04", t:"CAD Drawing & Mapping", d:"AutoCAD & reports", l:["AutoCAD survey drawings","Plot plans & site layouts","Contour & topographic plans","E-Survey data processing","Coordinate plotting & area calc"] },
+  { n:"05", t:"Levelling & Construction", d:"Benchmark & RL verification", l:["Benchmark establishment","Reduced level (RL) transfer","Elevation & slope checking","Excavation & filling checks","Construction alignment verification"] },
 ]
 
 return(
 <>
 <style>{`
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
-body{background:#fbf9f6;color:#111}
-.nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #eee;padding:14px 5%;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;font-size:22px}.logo span{color:#1a5c2a}
-.badge{background:#1a5c2a;color:#fff;padding:6px 12px;border-radius:100px;font-size:11px;font-weight:700}
-.btn{background:#1a5c2a;color:#fff;padding:10px 18px;border-radius:100px;font-weight:700;font-size:13px;border:none;text-decoration:none;display:inline-block;cursor:pointer}
-.hero{padding:50px 5%;display:grid;grid-template-columns:1.2fr 0.8fr;gap:30px;background:linear-gradient(135deg,#fbf9f6,#eef6e4)}
-.hero h1{font-size:54px;line-height:0.9;letter-spacing:-2px;font-weight:800}.hero h1 span{color:#1a5c2a}
-.desc{color:#555;margin-top:12px;line-height:1.6;font-size:14px}
-.stats{display:flex;gap:25px;margin-top:18px}.stats b{font-size:22px;color:#1a5c2a;display:block}.stats p{font-size:11px;color:#888;font-weight:600}
-.card{background:#fff;border-radius:20px;padding:20px;border:1px solid #eee;box-shadow:0 10px 40px rgba(0,0,0,0.06)}
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.pills span{background:#f4efe6;border:1px solid #e8e0d0;padding:6px 10px;border-radius:100px;font-size:11px;font-weight:600}
-.sec{padding:60px 5%}.sec h2{font-size:32px;text-align:center}.sub{text-align:center;color:#888;margin-top:6px;margin-bottom:25px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.box{background:#fff;border:1px solid #f0e9dc;padding:18px;border-radius:16px;cursor:pointer;transition:all 0.3s ease}
-.box:hover{border-color:#1a5c2a;transform:translateY(-4px);box-shadow:0 12px 30px rgba(26,92,42,0.15)}
-.box h3{font-size:14px}.box:hover h3{color:#1a5c2a}
-.box .short{font-size:12px;color:#777;margin-top:6px;line-height:1.5}
-.box .points{max-height:0;opacity:0;overflow:hidden;transition:all 0.4s ease}
-.box:hover .points{max-height:300px;opacity:1;margin-top:12px;border-top:1px solid #eee;padding-top:10px}
-.box .points li{font-size:11px;color:#444;line-height:1.9;list-style:none;padding-left:14px;position:relative}
-.box .points li::before{content:"•";position:absolute;left:0;color:#1a5c2a;font-weight:800}
-.box .hint{font-size:10px;color:#aaa;margin-top:8px}.box:hover .hint{display:none}
-.contact{background:#0f2815;color:#fff;padding:60px 5%;display:grid;grid-template-columns:1fr 0.8fr;gap:30px}
-.form{background:#fff;color:#111;padding:20px;border-radius:16px}.form input{width:100%;padding:11px;border:1.5px solid #ddd;border-radius:10px;margin-bottom:10px}
-footer{text-align:center;padding:14px;background:#0a1d0f;color:#6a8a6a;font-size:11px}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.hero h1{font-size:36px}.grid3{grid-template-columns:1fr}.contact{grid-template-columns:1fr}}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Outfit:wght@400;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f0e2e;color:#fff;font-family:'Outfit',sans-serif;overflow-x:hidden}
+h1,h2,h3,b{font-family:'Space Grotesk',sans-serif}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(20px);background:rgba(15,14,46,0.8);border-bottom:1px solid rgba(99,102,241,0.2);padding:16px 6%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:700;font-size:14px;letter-spacing:2px}.logo i{font-style:normal;color:#818cf8}
+.nav-links{display:flex;gap:20px;align-items:center;font-size:12px;letter-spacing:1px;color:#a5b4fc}
+.btn-white{background:#fff;color:#0f0e2e;padding:10px 20px;border-radius:100px;font-weight:700;font-size:12px;letter-spacing:0.5px;text-decoration:none;transition:all 0.3s}
+.btn-white:hover{background:#e0e7ff;transform:translateY(-1px);box-shadow:0 10px 30px rgba(255,255,255,0.15)}
+
+/* HERO */
+.hero{padding:80px 6% 60px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;position:relative;background:radial-gradient(600px at 20% 10%,rgba(99,102,241,0.25),transparent),#0f0e2e}
+.hero-badge{border:1px solid rgba(129,140,248,0.3);background:rgba(99,102,241,0.1);color:#a5b4fc;padding:6px 14px;border-radius:100px;font-size:10px;letter-spacing:1.5px;display:inline-block;margin-bottom:18px}
+.hero h1{font-size:72px;line-height:0.85;letter-spacing:-3px;font-weight:700}.hero h1 em{font-style:normal;color:#818cf8;display:block}
+.hero-desc{color:#a5b4fc;line-height:1.7;font-size:14px;margin-top:20px;max-width:480px}
+.hero-desc strong{color:#fff}
+.stats{display:flex;gap:30px;margin-top:30px;border-top:1px solid rgba(99,102,241,0.2);padding-top:20px;max-width:380px}
+.stats div b{font-size:28px;color:#fff;display:block}.stats div p{font-size:10px;letter-spacing:1px;color:#818cf8;margin-top:4px}
+
+/* RIGHT CARD - GLASS */
+.glass{background:linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03));border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(20px);border-radius:24px;padding:24px}
+.glass-top{display:flex;gap:14px;align-items:center}
+.avatar{width:54px;height:54px;border-radius:14px;background:#fff;color:#0f0e2e;display:grid;place-items:center;font-weight:700;font-size:18px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pills span{background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.25);color:#c7d2fe;padding:7px 12px;border-radius:100px;font-size:10px;letter-spacing:0.5px}
+.info-box{margin-top:18px;background:rgba(0,0,0,0.3);border:1px solid rgba(99,102,241,0.2);border-radius:14px;padding:12px 14px;font-size:11px;line-height:2;color:#a5b4fc}
+.info-box b{color:#fff}
+
+/* SERVICES */
+.services{padding:80px 6%;background:#0f0e2e;position:relative}
+.section-head{text-align:left;max-width:1200px;margin:0 auto 40px;display:flex;justify-content:space-between;align-items:end}
+.section-head h2{font-size:42px;letter-spacing:-1px;line-height:0.9}.section-head h2 i{font-style:normal;color:#818cf8}
+.section-head p{color:#818cf8;font-size:12px;letter-spacing:1px;max-width:260px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1200px;margin:0 auto}
+.s-card{position:relative;background:linear-gradient(180deg,#1e1b4b,#16144a);border:1px solid rgba(99,102,241,0.2);border-radius:20px;padding:22px;min-height:210px;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);cursor:pointer}
+.s-card:hover{transform:translateY(-6px) scale(1.01);border-color:#818cf8;box-shadow:0 20px 60px rgba(99,102,241,0.3);background:linear-gradient(180deg,#25207a,#1e1b4b)}
+.s-num{font-size:11px;letter-spacing:2px;color:#6366f1;font-weight:700;margin-bottom:10px}
+.s-card h3{font-size:18px;line-height:1.1;color:#fff}
+.s-card .s-short{font-size:11px;color:#818cf8;margin-top:8px;letter-spacing:0.3px;line-height:1.5;transition:all 0.3s}
+.s-card:hover .s-short{opacity:0;transform:translateY(-5px);height:0;margin:0;overflow:hidden}
+.s-list{max-height:0;opacity:0;transform:translateY(10px);transition:all 0.45s cubic-bezier(0.16,1,0.3,1);overflow:hidden}
+.s-card:hover .s-list{max-height:300px;opacity:1;transform:translateY(0);margin-top:14px;border-top:1px solid rgba(99,102,241,0.3);padding-top:12px}
+.s-list li{font-size:12px;color:#e0e7ff;line-height:2;list-style:none;display:flex;gap:8px}
+.s-list li:before{content:"—";color:#818cf8}
+.s-hint{position:absolute;bottom:14px;right:16px;font-size:9px;letter-spacing:1px;color:rgba(255,255,255,0.3)}.s-card:hover .s-hint{opacity:0}
+
+/* CONTACT */
+.contact{padding:60px 6%;background:linear-gradient(180deg,#0f0e2e,#0a0a23);border-top:1px solid rgba(99,102,241,0.15);display:grid;grid-template-columns:1fr 0.9fr;gap:40px;max-width:1200px;margin:0 auto}
+.contact h2{font-size:42px;line-height:0.9;letter-spacing:-1px}.contact h2 i{font-style:normal;color:#818cf8}
+.contact-form{background:#fff;border-radius:20px;padding:22px;color:#0f0e2e}
+.contact-form input{width:100%;padding:14px 16px;border:1px solid #e0e7ff;border-radius:12px;margin-bottom:12px;font-size:13px;background:#f8f7ff;outline:none;transition:border 0.3s}
+.contact-form input:focus{border-color:#6366f1}
+.btn-dark{background:#0f0e2e;color:#fff;width:100%;padding:14px;border-radius:12px;border:none;font-weight:700;font-size:12px;letter-spacing:1px;cursor:pointer;transition:all 0.3s}
+.btn-dark:hover{background:#1e1b4b;transform:translateY(-1px)}
+
+footer{padding:20px 6%;background:#08071c;border-top:1px solid rgba(99,102,241,0.15);display:flex;justify-content:space-between;color:#6366f1;font-size:10px;letter-spacing:1px}
+
+@media(max-width:900px){
+.hero{grid-template-columns:1fr;padding:50px 6%}.hero h1{font-size:48px}.grid{grid-template-columns:1fr}.section-head{flex-direction:column;align-items:start;gap:12px}.contact{grid-template-columns:1fr}.nav-links{display:none}
+}
 `}</style>
 
 <nav className="nav">
-  <div className="logo">JASEER CK <span>• FREELANCE SURVEYOR</span></div>
-  <div style={{display:'flex',gap:8,alignItems:'center'}}>
-    <span className="badge">AVAILABLE FOR PROJECTS</span>
-    <a className="btn" href="https://wa.me/918156936607">Contact Me</a>
+  <div className="logo">JASEER CK <i>• SURVEYOR</i></div>
+  <div className="nav-links">
+    <span>8+ YEARS • 500+ SITES</span>
+    <a className="btn-white" href="https://wa.me/918156936607">CONTACT ME →</a>
   </div>
 </nav>
 
 <section className="hero">
   <div>
-    <p style={{background:'#fff',border:'1px solid #d7e8c8',display:'inline-block',padding:'6px 12px',borderRadius:'100px',fontSize:'11px',fontWeight:700,color:'#1a5c2a'}}>📍 FREELANCE • 8+ YEARS EXP </p>
-    <h1>Freelance<br/><span>Land Surveyor</span></h1>
-    <p className="desc">
-      I am <b>Jaseer CK</b> — I work as <b>Freelance Land Surveyor</b>. Companies / Contractors can Connect me for daily / project basis.
-      <br/><br/>
-      <b>8+ years</b> experience in <b> Highway, PWD Roads, Bridges, Building projects</b>. I have my own equipment handling knowledge — Leica Total Station, DGPS/RTK, Auto Level, AutoCAD.
-      <br/><br/>
-      
+    <div className="hero-badge">FREELANCE LAND SURVEYOR • AVAILABLE FOR PROJECTS</div>
+    <h1>Precise <em>Surveying</em> For Big Projects</h1>
+    <p className="hero-desc">
+      I'm <strong>Jaseer CK</strong> — freelance surveyor trusted by contractors for <strong>NHAI Highway, PWD Roads, KIIFB Bridges & Building projects</strong>. I provide mm-accuracy with Leica Total Station, DGPS/RTK & AutoCAD.
+      <br/><br/>Hire me daily / project basis — Open to <strong>UAE, Saudi, Qatar, Oman.</strong>
     </p>
     <div className="stats">
-      <div><b>8+</b><p>Years Exp</p></div>
-      <div><b>500+</b><p>Sites Done</p></div>
-      <div><b>100%</b><p>Accuracy</p></div>
+      <div><b>8+</b><p>YEARS EXP</p></div>
+      <div><b>500+</b><p>SITES DONE</p></div>
+      <div><b>100%</b><p>ACCURACY</p></div>
     </div>
-    <div style={{marginTop:'20px',display:'flex',gap:'10px',flexWrap:'wrap'}}>
-      <a className="btn" href="https://wa.me/918156936607?text=Hi%20Jaseer,%20We%20need%20freelance%20surveyor%20for%20our%20project">📞 Contact Me - 8156936607</a>
-      
+    <div style={{marginTop:'28px',display:'flex',gap:'12px'}}>
+      <a className="btn-white" href="https://wa.me/918156936607?text=Hi%20Jaseer,%20Need%20freelance%20surveyor">📞 8156936607</a>
+      <span style={{color:'#818cf8',fontSize:'11px',alignSelf:'center',letterSpacing:'1px'}}>MALAPPURAM • KERALA • GCC OPEN</span>
     </div>
   </div>
 
-  <div className="card">
-    <div style={{display:'flex',gap:'12px',alignItems:'center'}}>
-      <div style={{width:'50px',height:'50px',borderRadius:'50%',background:'#1a5c2a',color:'#fff',display:'grid',placeItems:'center',fontWeight:800}}>JC</div>
-      <div><b>Jaseer CK</b><br/><small>Freelance Land Surveyor</small><br/><small style={{color:'#1a5c2a',fontWeight:700}}>Available for Work</small></div>
+  <div className="glass">
+    <div className="glass-top">
+      <div className="avatar">JC</div>
+      <div>
+        <b style={{color:'#fff',fontSize:'15px'}}>Jaseer CK</b><br/>
+        <small style={{color:'#a5b4fc',letterSpacing:'1px',fontSize:'10px'}}>FREELANCE SURVEYOR • AVAILABLE</small>
+      </div>
+      <div style={{marginLeft:'auto',width:'8px',height:'8px',background:'#22c55e',borderRadius:'50%',boxShadow:'0 0 10px #22c55e'}}></div>
     </div>
-    <hr style={{margin:'14px 0',border:'none',borderTop:'1px solid #eee'}}/>
-    <b>✅ My Skills</b>
-    <div className="pills">{skills.map(s=><span key={s}>{s}</span>)}</div>
-    <div style={{marginTop:'14px',background:'#faf8f4',padding:'10px',borderRadius:'10px',fontSize:'11px',lineHeight:2}}>
-      ✉️ jaseerjazz0@gmail.com<br/>📍 Malappuram, Kerala<br/>🗣️ English, Malayalam<br/>⏰ Daily / Project Basis
+    <div className="pills">
+      {skills.map(s=><span key={s}>{s}</span>)}
+    </div>
+    <div className="info-box">
+      <b>✉️</b> jaseerjazz0@gmail.com<br/>
+      <b>📍</b> Malappuram, Kerala — Open to GCC<br/>
+      <b>⏰</b> Daily / Project Basis • Direct Hire
     </div>
   </div>
 </section>
 
-<section className="sec" style={{background:'#fff'}}>
-  <h2>What I Can Do For Your Project</h2>
-  <p className="sub">I am freelance worker — You can hire me — Hover on service to see details 👇</p>
-  <div className="grid3">
-    {services.map((s,i)=>(
-      <div key={i} className="box">
-        <h3>{s.title}</h3>
-        <p className="short">{s.short}</p>
-        <ul className="points">
-          {s.points.map((p,idx)=><li key={idx}>{p}</li>)}
+<section className="services">
+  <div className="section-head">
+    <h2>What I Can Do<br/><i>For Your Project</i></h2>
+    <p>HOVER ON CARD TO SEE DETAILS — I AM FREELANCE WORKER, YOU CAN HIRE ME DIRECTLY</p>
+  </div>
+  <div className="grid">
+    {services.map((s)=>(
+      <div key={s.n} className="s-card">
+        <div className="s-num">{s.n} — SERVICE</div>
+        <h3>{s.t}</h3>
+        <div className="s-short">{s.d}</div>
+        <ul className="s-list">
+          {s.l.map((p,i)=><li key={i}>{p}</li>)}
         </ul>
-        <div className="hint">→ Hover to see my work</div>
+        <div className="s-hint">HOVER →</div>
       </div>
     ))}
   </div>
@@ -108,25 +147,28 @@ footer{text-align:center;padding:14px;background:#0a1d0f;color:#6a8a6a;font-size
 
 <section className="contact">
   <div>
-    <h2 style={{fontSize:'34px'}}>Hire Me As Freelance Surveyor</h2>
-    <p style={{color:'#a8c9a8',marginTop:'10px'}}>I am freelance worker — Not a company — You hire me directly for your site/project — Daily or project payment</p>
-    <div style={{marginTop:'20px',lineHeight:2.2}}>
+    <h2>Let's Work<br/><i>Together</i></h2>
+    <p style={{color:'#a5b4fc',marginTop:'14px',lineHeight:1.6,fontSize:'13px',maxWidth:'360px'}}>I am freelance worker — Not an agency. Companies / Contractors hire me directly. Daily or project payment, no commission.</p>
+    <div style={{marginTop:'24px',lineHeight:2.2,color:'#e0e7ff',fontSize:'13px'}}>
       <div>📞 +91 8156936607</div>
       <div>✉️ jaseerjazz0@gmail.com</div>
       <div>🔗 linkedin.com/in/jaseer-ck</div>
-      <div>📍 Malappuram, Kerala</div>
     </div>
   </div>
-  <div className="form">
-    <h3>Connect With Me...</h3>
-    <p style={{fontSize:'12px',color:'#777',margin:'6px 0 12px'}}>Company / Contractor can contact</p>
+  <div className="contact-form">
+    <b style={{fontSize:'14px'}}>Connect With Me</b>
+    <p style={{fontSize:'11px',color:'#6366f1',margin:'6px 0 16px',letterSpacing:'0.5px'}}>COMPANY / CONTRACTOR CAN CONTACT</p>
     <input id="name" placeholder="Your Company Name"/>
-    <input id="place" placeholder="Project Type & Location"/>
-    <button className="btn" style={{width:'100%',padding:'12px'}} onClick={()=>{const n=document.getElementById('name').value;const p=document.getElementById('place').value;window.open(`https://wa.me/918156936607?text=Hi%20Jaseer,%20I%20am%20${n}.%20Project:%20${p}.%20We%20want%20to%20hire%20you%20as%20freelance%20surveyor.`,'_blank')}}>Send WhatsApp to Hire Me</button>
+    <input id="place" placeholder="Project Type & Location (e.g. NHAI Road in Kasaragod)"/>
+    <button className="btn-dark" onClick={()=>{const n=document.getElementById('name').value;const p=document.getElementById('place').value;window.open(`https://wa.me/918156936607?text=Hi%20Jaseer,%20I%20am%20${n}.%20Project:%20${p}.%20We%20want%20to%20hire%20you%20as%20freelance%20surveyor.`,'_blank')}}>SEND WHATSAPP →</button>
+    <p style={{fontSize:'10px',color:'#999',marginTop:'10px',textAlign:'center',letterSpacing:'0.5px'}}>REPLY IN 5 MINUTES • DIRECT HIRE</p>
   </div>
 </section>
 
-<footer>© 2026 Jaseer CK — Freelance Land Surveyor — Available for Projects — 8156936607</footer>
+<footer>
+  <span>© 2026 JASEER CK — FREELANCE SURVEYOR</span>
+  <span>DEEP INDIGO • WHITE • BUILT FOR GCC PROJECTS</span>
+</footer>
 </>
 )
 }
