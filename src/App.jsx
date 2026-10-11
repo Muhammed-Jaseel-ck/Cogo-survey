@@ -167,7 +167,6 @@ footer{padding:20px 6%;background:#08071c;border-top:1px solid rgba(99,102,241,0
 
 <footer>
   <span>© 2026 JASEER CK — FREELANCE SURVEYOR</span>
-  <span>DEEP INDIGO • WHITE • BUILT FOR GCC PROJECTS</span>
 </footer>
 </>
 )
