@@ -92,7 +92,6 @@ footer{padding:20px 6%;background:#08071c;border-top:1px solid rgba(99,102,241,0
     <h1>Precise <em>Surveying</em> For Big Projects</h1>
     <p className="hero-desc">
       I'm <strong>Jaseer CK</strong> — freelance surveyor trusted by contractors for <strong>NHAI Highway, PWD Roads, KIIFB Bridges & Building projects</strong>. I provide mm-accuracy with Leica Total Station, DGPS/RTK & AutoCAD.
-      <br/><br/>Hire me daily / project basis — Open to <strong>UAE, Saudi, Qatar, Oman.</strong>
     </p>
     <div className="stats">
       <div><b>8+</b><p>YEARS EXP</p></div>
@@ -101,13 +100,13 @@ footer{padding:20px 6%;background:#08071c;border-top:1px solid rgba(99,102,241,0
     </div>
     <div style={{marginTop:'28px',display:'flex',gap:'12px'}}>
       <a className="btn-white" href="https://wa.me/918156936607?text=Hi%20Jaseer,%20Need%20freelance%20surveyor">📞 8156936607</a>
-      <span style={{color:'#818cf8',fontSize:'11px',alignSelf:'center',letterSpacing:'1px'}}>MALAPPURAM • KERALA • GCC OPEN</span>
+      <span style={{color:'#818cf8',fontSize:'11px',alignSelf:'center',letterSpacing:'1px'}}>MALAPPURAM • KERALA </span>
     </div>
   </div>
 
   <div className="glass">
     <div className="glass-top">
-      <div className="avatar">JC</div>
+      
       <div>
         <b style={{color:'#fff',fontSize:'15px'}}>Jaseer CK</b><br/>
         <small style={{color:'#a5b4fc',letterSpacing:'1px',fontSize:'10px'}}>FREELANCE SURVEYOR • AVAILABLE</small>
@@ -118,9 +117,9 @@ footer{padding:20px 6%;background:#08071c;border-top:1px solid rgba(99,102,241,0
       {skills.map(s=><span key={s}>{s}</span>)}
     </div>
     <div className="info-box">
-      <b>✉️</b> jaseerjazz0@gmail.com<br/>
-      <b>📍</b> Malappuram, Kerala — Open to GCC<br/>
-      <b>⏰</b> Daily / Project Basis • Direct Hire
+      <b>✉️</b> Cogo Surveys00@gmail.com<br/>
+      <b>📍</b> Malappuram, Kerala <br/>
+      <b>⏰</b> Daily / Project Basis 
     </div>
   </div>
 </section>
@@ -128,7 +127,7 @@ footer{padding:20px 6%;background:#08071c;border-top:1px solid rgba(99,102,241,0
 <section className="services">
   <div className="section-head">
     <h2>What I Can Do<br/><i>For Your Project</i></h2>
-    <p>HOVER ON CARD TO SEE DETAILS — I AM FREELANCE WORKER, YOU CAN HIRE ME DIRECTLY</p>
+    <p>HOVER ON CARD TO SEE DETAILS — I AM FREELANCE WORKER, YOU CAN CONNECT ME DIRECTLY</p>
   </div>
   <div className="grid">
     {services.map((s)=>(
@@ -158,10 +157,10 @@ footer{padding:20px 6%;background:#08071c;border-top:1px solid rgba(99,102,241,0
   <div className="contact-form">
     <b style={{fontSize:'14px'}}>Connect With Me</b>
     <p style={{fontSize:'11px',color:'#6366f1',margin:'6px 0 16px',letterSpacing:'0.5px'}}>COMPANY / CONTRACTOR CAN CONTACT</p>
-    <input id="name" placeholder="Your Company Name"/>
-    <input id="place" placeholder="Project Type & Location (e.g. NHAI Road in Kasaragod)"/>
+    <input id="name" placeholder="Your Name"/>
+    <input id="place" placeholder="Project Type & Location"/>
     <button className="btn-dark" onClick={()=>{const n=document.getElementById('name').value;const p=document.getElementById('place').value;window.open(`https://wa.me/918156936607?text=Hi%20Jaseer,%20I%20am%20${n}.%20Project:%20${p}.%20We%20want%20to%20hire%20you%20as%20freelance%20surveyor.`,'_blank')}}>SEND WHATSAPP →</button>
-    <p style={{fontSize:'10px',color:'#999',marginTop:'10px',textAlign:'center',letterSpacing:'0.5px'}}>REPLY IN 5 MINUTES • DIRECT HIRE</p>
+  
   </div>
 </section>
 
